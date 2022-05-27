@@ -1,5 +1,5 @@
 #ライブラリのインポート
-import urllib
+import urllib.request
 from bs4 import BeautifulSoup
 import pandas as pd
 
@@ -18,11 +18,11 @@ rows = table.find_all('tr')
 HeadData = []     #’選手名’，”チーム名”などデータの名前
 PlayerData = []   #[[選手1に関するデータ],[選手2に関するデータ],・・・]
 
-#行データから値を取り出す．iが配列列番号　rowが配列
+#行データから値を取り出す．iが配列列番号 rowが配列
 for i, row in enumerate(rows):
     #表の1行目について
     if i == 0:
-        #ヘッダの値を取得　’選手名’，’チーム名’，・・・
+        #ヘッダの値を取得 ’選手名’，’チーム名’，・・・
         for HeaderValue in row.find_all('th'):
             HeadData.append(HeaderValue.get_text())
     
@@ -34,8 +34,8 @@ for i, row in enumerate(rows):
             PlayerRow.append(PlayerValue.get_text())
         PlayerData.append(PlayerRow)
 
-#DataFrameに変換　表形式データ
+#DataFrameに変換 表形式データ
 df = pd.DataFrame(data = PlayerData, columns = HeadData)
 
 #csvファイルに出力
-df.to_csv('PlayerData.csv', sep = ',', header = True, index = False)
+df.to_csv('./data/PlayerData.csv', sep = ',', header = True, index = False)
