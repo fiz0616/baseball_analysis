@@ -2,7 +2,7 @@
 
 ## Set up  
 ・pip install BeautifulSoupe4  
-・pip install urllib3 
+・pip install urllib3  
 ・pip install sklearn  
 
 ## feat_HR_number
