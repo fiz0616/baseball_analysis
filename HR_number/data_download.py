@@ -8,7 +8,7 @@ url = 'https://baseball-data.com/21/stats/hitter2-all/tpa-1.html'
 html = urllib.request.urlopen(url)
 soup = BeautifulSoup(html, 'html.parser')
 
-#HTMLから表の部分を全て取得する．（該当箇所：tabaleタグ）
+#HTMLから表の部分を全て取得する．（該当箇所：tableタグ）
 table = soup.find_all('table')[0]
 
 #上記作成tableから行データを取得する．（該当箇所：trタグ）
